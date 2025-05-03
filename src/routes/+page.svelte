@@ -1,2 +1,5 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<div>
+    Buben-App
+</div>
+<button type="button" class="btn preset-filled">Button</button>
+	<button type="button" class="btn preset-outlined-primary-500">Button</button>
