@@ -1,5 +1,8 @@
 <script lang="ts">
 	import '../app.css';
+	import { navStack } from '$lib/stores/navstack';
+
+
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	// Icons
@@ -19,7 +22,7 @@
 <div class="flex h-screen w-screen flex-col">
 	<AppBar headlineClasses="sm:hidden" centerClasses="hidden sm:block">
 		{#snippet lead()}
-		<ArrowLeft size={24} />
+		<ArrowLeft size={24}/>
 		{/snippet}
 		{#snippet trail()}
 		<div class="hidden space-x-4 sm:flex">
@@ -40,16 +43,16 @@
 	<div class="card border-surface-100-900 grid h-full w-full grid-rows-[1fr_auto] border-[1px]">
 		<!-- Content -->
 		<div class="flex items-center justify-center">
-		<p class="opacity-20">
+		<div class="">
 			{@render children()}
-		</p>
+		</div>
 		</div>
 		<!-- Component -->
 		<Navigation.Bar>
-		<Navigation.Tile label="Files" href="#/files"><IconFolder /></Navigation.Tile>
-		<Navigation.Tile label="Images" href="#/images"><IconImage /></Navigation.Tile>
-		<Navigation.Tile label="Music" href="#/music"><IconMusic /></Navigation.Tile>
-		<Navigation.Tile label="Videos" href="#/videos"><IconVideo /></Navigation.Tile>
+		<Navigation.Tile label="Aufgaben" href="/rallye"><IconFolder /></Navigation.Tile>
+		<Navigation.Tile label="Karte" href="/karte"><IconImage /></Navigation.Tile>
+		<Navigation.Tile label="Regeln" href="/regeln"><IconMusic /></Navigation.Tile>
+		<Navigation.Tile label="Medien" href="/medien"><IconVideo /></Navigation.Tile>
 		</Navigation.Bar>
 	</div>
 </div>
