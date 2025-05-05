@@ -15,6 +15,7 @@
 	import Calendar from '@lucide/svelte/icons/calendar';
 	import CircleUser from '@lucide/svelte/icons/circle-user';
 	import Menu from '@lucide/svelte/icons/menu';
+	import Car from '@lucide/svelte/icons/car';
 	
 	let { children } = $props();
 </script>
@@ -51,6 +52,7 @@
 		<Navigation.Bar>
 		<Navigation.Tile label="Aufgaben" href="/rallye"><IconFolder /></Navigation.Tile>
 		<Navigation.Tile label="Karte" href="/karte"><IconImage /></Navigation.Tile>
+		<Navigation.Tile label="Team" href="/team"><Car /></Navigation.Tile>
 		<Navigation.Tile label="Regeln" href="/regeln"><IconMusic /></Navigation.Tile>
 		<Navigation.Tile label="Medien" href="/medien"><IconVideo /></Navigation.Tile>
 		</Navigation.Bar>

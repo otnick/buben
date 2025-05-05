@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Team {
+  id         String      @id @default(cuid())
+  name       String 
+  password   String
+  points     Int         @default(0)
+  members    Member[]
+  challenges Challenge[]
+  logo       String?
+  car        String?
+  captain    String?    
+}
+
+model Member {
+  id         String      @id @default(cuid())
+  name       String
+  password   String
+  teamId     String?     // Optional, und kann auch null sein
+  team       Team?       @relation(fields: [teamId], references: [id])
+  challenges Challenge[]
+}
+
+model Challenge {
+  id        String  @id @default(cuid())
+  title     String
+  description String
+  completed Boolean @default(false)
+  points    Int
+  teamId    String
+  team      Team    @relation(fields: [teamId], references: [id])
+  memberId  String?
+  member    Member? @relation(fields: [memberId], references: [id])
+  media       Media[]
+}
+
+model Media {
+  id          String    @id @default(cuid())
+  url         String    // z. B. Pfad, Base64 oder extern
+  challengeId String
+  challenge   Challenge @relation(fields: [challengeId], references: [id])
+}
